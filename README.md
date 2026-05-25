@@ -38,8 +38,32 @@ X-Untitled: ephemeral, anonymous
 X-Untitled: draft; version=0.3
 ```
 
+## npm package
+
+**[untitled-meta](https://www.npmjs.com/package/untitled-meta)** — zero-dependency JS/TS package for setting the Untitled state programmatically. Works in any JS/TS project: React, Vue, Next.js, Astro, Express, and plain JavaScript.
+
+```sh
+npm install untitled-meta
+```
+
+```js
+import { setUntitled, header, headerObject } from 'untitled-meta'
+
+// Client-side (sets <meta name="untitled">)
+setUntitled('now')
+
+// Server-side (HTTP header string)
+res.setHeader(...header('draft').split(': '))
+
+// Server-side (header object, spreads directly)
+new Response(body, { headers: headerObject('ephemeral, anonymous') })
+```
+
+Source: [`plugins/untitled-meta/`](plugins/untitled-meta/)
+
 ## Tools
 
+- **[untitled-meta](https://www.npmjs.com/package/untitled-meta)** — npm package for JS/TS projects (see above)
 - **[untitled.js](https://untitled.now/js/untitled.js)** — drop-in visual indicator (1 kb, no dependencies)
 - **[Validator](https://untitled.now/validate/)** — check any URL for an Untitled declaration
 - **[Suggest](https://untitled.now/suggest/)** — AI-powered state recommendation
